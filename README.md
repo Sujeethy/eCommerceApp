@@ -9,7 +9,7 @@ eCommerceApp is a full-stack eCommerce application built with Node.js, Express, 
 
 ![image](https://github.com/user-attachments/assets/5896bc8e-61aa-4f91-960a-87ef4572a8d0)
 
-![image](https://github.com/user-attachments/assets/aaa72646-f15d-47b8-9851-4a595578c6d6)
+![order_email](https://github.com/user-attachments/assets/c76f6485-3c71-48a9-850c-1d0a243b171a)
 
 ![image](https://github.com/user-attachments/assets/d15a22c7-aff4-4e64-95e2-74e63708fb1d)
 
