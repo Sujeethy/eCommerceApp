@@ -29,7 +29,7 @@ const options = {
 	  },
 	  servers: [
 		{
-		  url: 'http://localhost:5000', // Replace with your server's URL
+		  url: 'http://localhost:5000', 
 		},
 	  ],
 	},
@@ -41,6 +41,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({
+    origin: '' // Replace with your frontend URL
+}));
 
 app.use(express.json()); 
 app.use(cookieParser()); 

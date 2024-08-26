@@ -6,9 +6,10 @@ import axios from 'axios';
 import { useStore } from "../store/useStore.js";
 import toast from "react-hot-toast";
 
-const API_KEY = import.meta.env.STRIPE_CLIENT;
-const stripePromise = loadStripe(API_KEY);
+
 const API_URL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "";
+const stripePromise = loadStripe('pk_test_51PrRxtKoaoIevQJ0u48zLTd3gZMHotHkhZWk0ppbnW2DEv90gYTmsnx7LvGRsB6N5iIiWAqqWsLSuKuZHRQmHBkY00cks24Fv6');
+
 const PaymentPopup = ({ onClose }) => {
   const { total, cart, fetchCart } = useStore();
   const [loading, setLoading] = useState(false);

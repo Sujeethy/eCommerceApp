@@ -14,7 +14,7 @@ const CartPage = () => {
     fetchCart();
     setLoading(false);
   }, []);
-
+  
   return (
     <div className="flex-1 p-6 z-10 overflow-y-auto" id="Content">
         <h1 className="text-2xl font-bold mb-4">Cart</h1>
