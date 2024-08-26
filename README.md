@@ -14,8 +14,6 @@ eCommerceApp is a full-stack eCommerce application built with Node.js, Express, 
 ![image](https://github.com/user-attachments/assets/d15a22c7-aff4-4e64-95e2-74e63708fb1d)
 
 
-![order email image](demo/order_email.png)
-
 ## Features
 
 - **User Authentication:** Secure user authentication with JWT, including features like signup, login, password reset, and email verification.
