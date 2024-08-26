@@ -1,6 +1,4 @@
 
-
-```markdown
 # eCommerceApp
 
 eCommerceApp is a full-stack eCommerce application built with Node.js, Express, MongoDB, and React. The application provides a seamless shopping experience with features like user authentication, shopping cart management, order processing, payment integration with Stripe, and more.
