@@ -1,6 +1,4 @@
-Sure! Here's the updated `README.md` that includes mentions of Zustand for state management, Framer Motion for animations, invoice download functionality, and order confirmation emails.
 
-### README.md
 
 ```markdown
 # eCommerceApp
@@ -15,8 +13,8 @@ eCommerceApp is a full-stack eCommerce application built with Node.js, Express, 
 
 ![image](https://github.com/user-attachments/assets/aaa72646-f15d-47b8-9851-4a595578c6d6)
 
-
 ![order email image](demo/order_email.png)
+
 ## Features
 
 - **User Authentication:** Secure user authentication with JWT, including features like signup, login, password reset, and email verification.
@@ -108,4 +106,4 @@ Swagger API documentation is available at `http://localhost:5000/api-docs`.
 ## Contributing
 
 Contributions are welcome! Please create a pull request for any enhancements or bug fixes.
-
+```
