@@ -6,26 +6,27 @@ import axios from 'axios';
 import { useStore } from "../store/useStore.js";
 import toast from "react-hot-toast";
 
-const stripePromise = loadStripe('pk_test_51PrRxtKoaoIevQJ0u48zLTd3gZMHotHkhZWk0ppbnW2DEv90gYTmsnx7LvGRsB6N5iIiWAqqWsLSuKuZHRQmHBkY00cks24Fv6');
-
+const API_KEY = import.meta.env.STRIPE_CLIENT;
+const stripePromise = loadStripe(API_KEY);
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "";
 const PaymentPopup = ({ onClose }) => {
   const { total, cart, fetchCart } = useStore();
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  
+
   const handlePayment = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) return;
-  
+
     setLoading(true);
-  
+
     try {
-      const response = await axios.post('http://localhost:5000/api/payment/process', {
+      const response = await axios.post(API_URL + '/api/payment/process', {
         amount: total.toFixed(2) * 100,
         products: cart,
       });
-  
+
       const { clientSecret } = response.data;
 
       const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
@@ -36,12 +37,12 @@ const PaymentPopup = ({ onClose }) => {
           },
         },
       });
-  
+
       if (error) {
         toast.error('Payment failed: ' + error.message);
       } else if (paymentIntent.status === 'succeeded') {
         toast.success('Payment successful!');
-        await axios.post('http://localhost:5000/api/order/create', {
+        await axios.post(API_URL + '/api/order/create', {
           paymentId: paymentIntent.id,
           paymentStatus: paymentIntent.status,
           total: total.toFixed(2),
@@ -61,7 +62,7 @@ const PaymentPopup = ({ onClose }) => {
       setLoading(false);
     }
   };
-  
+
   return (
     <motion.div
       className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"

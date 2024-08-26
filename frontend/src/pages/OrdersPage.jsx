@@ -4,7 +4,7 @@ import Sidebar from "../components/SideBar";
 import axios from "axios";
 import { Download } from 'lucide-react'; // Importing Lucide icon
 import { generateInvoicePDF } from "../utils/generateInvoicePDF";
-
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "";
 const OrdersPage = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ const OrdersPage = () => {
   const fetchOrders = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/order/");
+      const response = await axios.get(API_URL+"/api/order/");
       setOrders(response.data);
       console.log(response.data);
     } catch (error) {

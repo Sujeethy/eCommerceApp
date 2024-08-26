@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import axios from 'axios';
-
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:5000/" : "";
 export const useStore = create((set, get) => ({
   products: [],
   cart: [],
@@ -21,7 +21,7 @@ export const useStore = create((set, get) => ({
   setLoading: (loading) => set({ loading }),
   fetchCart: async ()=>{
     try {
-      const response = await axios.get('http://localhost:5000/api/cart', { withCredentials: true });
+      const response = await axios.get(API_URL+'/api/cart', { withCredentials: true });
       const {calculateTotal} =get();
       set({ cart: response.data });
       
@@ -94,7 +94,7 @@ export const useStore = create((set, get) => ({
     calculateTotal(updatedCart);
 
     try {
-      await axios.post('http://localhost:5000/api/cart/add/', {
+      await axios.post(API_URL+'/api/cart/add/', {
         productId: product.id,
         quantity: 1,
         userId: user,
@@ -120,7 +120,7 @@ export const useStore = create((set, get) => ({
     calculateTotal(updatedCart);
 
     try {
-      await axios.post('http://localhost:5000/api/cart/add', {
+      await axios.post(API_URL+'/api/cart/add', {
         productId: id,
         quantity: increment,
       });
@@ -130,7 +130,7 @@ export const useStore = create((set, get) => ({
   },
 removeCartItem: async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/cart/remove/${id}`);
+      await axios.delete(API_URL+`/api/cart/remove/${id}`);
       const { cart,calculateTotal } = get();
       const updatedCart = cart.filter((item) => item.id !== id);
       set({ cart: updatedCart });
