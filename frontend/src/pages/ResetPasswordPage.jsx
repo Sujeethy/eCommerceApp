@@ -35,16 +35,16 @@ const ResetPasswordPage = () => {
 
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: 20 }}
-			animate={{ opacity: 1, y: 0 }}
+			initial={{ opacity: 0, scale: 0.9 }}
+			animate={{ opacity: 1, scale: 1 }}
 			transition={{ duration: 0.5 }}
-			className='z-10 max-w-md w-full bg-blue-700 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-md shadow-xl overflow-hidden'
+			className='z-10 max-w-md w-full bg-gradient-to-br from-gray-800 via-gray-900 to-black bg-opacity-70 backdrop-filter backdrop-blur-xl rounded-md shadow-xl overflow-hidden'
 		>
 			<div className='p-8'>
 				<h2 className='text-3xl font-semibold mb-6 text-center text-white'>
 					Reset Password
 				</h2>
-				<p className='text-center text-gray-200 mb-6'>
+				<p className='text-center text-gray-400 mb-6'>
 					Please enter your new password below.
 				</p>
 				<form onSubmit={handleSubmit}>
@@ -55,6 +55,7 @@ const ResetPasswordPage = () => {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
+						className="mb-4"
 					/>
 					<Input
 						icon={Lock}
@@ -69,11 +70,11 @@ const ResetPasswordPage = () => {
 					{message && <p className='text-green-500 font-semibold mt-2'>{message}</p>}
 
 					<motion.button
-						whileHover={{ scale: 1.02 }}
-						whileTap={{ scale: 0.98 }}
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
 						type='submit'
 						disabled={isLoading}
-						className='w-full py-3 px-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold rounded-md shadow-lg hover:from-blue-600 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-blue-900 transition duration-200'
+						className='w-full py-3 px-4 bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 text-white font-semibold rounded-md shadow-lg hover:from-gray-600 hover:via-gray-700 hover:to-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200'
 					>
 						{isLoading ? "Resetting..." : "Reset Password"}
 					</motion.button>

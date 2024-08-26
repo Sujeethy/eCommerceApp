@@ -1,5 +1,5 @@
-import {  Menu,  ShoppingBag, ShoppingCart,ListOrdered, LogOut } from "lucide-react";
-import { useState } from "react";
+import { Menu, ShoppingBag, ShoppingCart, ListOrdered, LogOut } from "lucide-react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/authStore";
@@ -7,7 +7,7 @@ import { useAuthStore } from "../store/authStore";
 const SIDEBAR_ITEMS = [
 	{ name: "Products", icon: ShoppingBag, color: "#8B5CF6", href: "/products" },
 	{ name: "Orders", icon: ListOrdered, color: "#F59E0B", href: "/orders" },
-    {name: "Cart", icon: ShoppingCart, color: "#3b82f6", href: "/cart" },
+	{ name: "Cart", icon: ShoppingCart, color: "#3b82f6", href: "/cart" },
 	{ name: "Logout", icon: LogOut, color: "red", href: "/login", onClick: "handleLogout" }
 ];
 
@@ -18,6 +18,22 @@ const Sidebar = () => {
 	const handleLogout = () => {
 		logout();
 	};
+
+	// Function to handle resizing and check screen width
+	const handleResize = () => {
+		if (window.innerWidth <= 768) {
+			setIsSidebarOpen(false);
+		} else {
+			setIsSidebarOpen(true);
+		}
+	};
+
+	// Attach the handleResize function to the resize event
+	useEffect(() => {
+		handleResize(); // Call once on mount to set initial state
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	return (
 		<motion.div
@@ -41,7 +57,7 @@ const Sidebar = () => {
 						<Link
 							key={item.href}
 							to={item.href}
-							onClick={item.name === "Logout" ? handleLogout : undefined} 
+							onClick={item.name === "Logout" ? handleLogout : undefined}
 						>
 							<motion.div className='flex items-center p-4 text-sm font-medium rounded-lg hover:bg-gray-700 transition-colors mb-2'>
 								<item.icon size={20} style={{ color: item.color, minWidth: "20px" }} />

@@ -7,6 +7,11 @@ Sure! Here's the updated `README.md` that includes mentions of Zustand for state
 
 eCommerceApp is a full-stack eCommerce application built with Node.js, Express, MongoDB, and React. The application provides a seamless shopping experience with features like user authentication, shopping cart management, order processing, payment integration with Stripe, and more.
 
+![alt text](image.png)
+
+![payment_image](demo/payment.png)
+
+![order email image](demo/order_email.png)
 ## Features
 
 - **User Authentication:** Secure user authentication with JWT, including features like signup, login, password reset, and email verification.
@@ -73,6 +78,7 @@ eCommerceApp is a full-stack eCommerce application built with Node.js, Express, 
    PORT=5000
    JWT_SECRET=<your-jwt-secret>
    NODE_ENV=development
+   CLIENT_URL=<your-client-url>
 
    MAIL_ID=<your-email-id>
    MAIL_PASSWORD=<your-email-password>
