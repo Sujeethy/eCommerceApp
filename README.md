@@ -7,9 +7,14 @@ Sure! Here's the updated `README.md` that includes mentions of Zustand for state
 
 eCommerceApp is a full-stack eCommerce application built with Node.js, Express, MongoDB, and React. The application provides a seamless shopping experience with features like user authentication, shopping cart management, order processing, payment integration with Stripe, and more.
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/8e4eecc2-6588-4511-a82a-ffc8cca7d0c2)
 
-![payment_image](demo/payment.png)
+![image](https://github.com/user-attachments/assets/1baf4b90-3811-4372-b640-2ab94d2b6633)
+
+![image](https://github.com/user-attachments/assets/5896bc8e-61aa-4f91-960a-87ef4572a8d0)
+
+![image](https://github.com/user-attachments/assets/aaa72646-f15d-47b8-9851-4a595578c6d6)
+
 
 ![order email image](demo/order_email.png)
 ## Features
