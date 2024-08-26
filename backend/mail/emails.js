@@ -44,7 +44,7 @@ export const sendWelcomeEmail = async (email, name) => {
         subject: 'Welcome!',
         html: `
             <p>Welcome, ${name}!</p>
-            <p>Company Name: Auth Company</p>
+            <p>Company Name: Ecommerce </p>
         `
     };
 
